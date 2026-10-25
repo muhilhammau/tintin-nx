@@ -1,0 +1,34 @@
+# Daftar putih: hanya ini yang masuk repo
+/*
+!/.gitignore
+!/.gitmodules
+!/README.md
+!/LICENSE
+!/Makefile
+!/build.ps1
+!/build.sh
+!/runtime
+!/source/
+!/launcher/
+!/tools/
+
+# Di dalam folder yang diizinkan
+*.bak*
+*.nro
+*.nso
+*.nsp
+*.elf
+*.nacp
+*.so
+*.apk
+*.obb
+*.log
+*.dex
+build/
+
+# Hasil dump/disassembly game (berasal dari kode berhak cipta)
+dis_*.txt
+
+# Ikon bisa berasal dari game; isi romfs dibuat ulang saat build
+launcher/icon*.jpg
+launcher/romfs/*
