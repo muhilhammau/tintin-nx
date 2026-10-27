@@ -23,7 +23,7 @@ An unofficial Nintendo Switch wrapper/port of Gameloft's Android game.
 
 The supported game build is:
 
-```text
+`text
 Package:      com.gameloft.android.GAND.GloftTTSS
 Version:      1.0.5
 Version code: 105
