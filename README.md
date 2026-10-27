@@ -1,12 +1,38 @@
-tintin_nx
+<div align="center">
 
-The Adventures of Tintin: The Game HD on Nintendo Switch
+<img src="launcher/icon.jpg" alt="The Adventures of Tintin: The Game HD" width="180">
+
+# tintin_nx
+
+**The Adventures of Tintin: The Game HD on Nintendo Switch**
 
 An unofficial Nintendo Switch wrapper/port of Gameloft's Android game.
 
-**No game files are included.** You need your own copy of the game's APK.
-This project is not affiliated with or endorsed by Gameloft, Ubisoft,
-Moulinsart or Nintendo.
+[![Switch](https://img.shields.io/badge/Nintendo_Switch-Homebrew-E60012?style=for-the-badge&logo=nintendoswitch&logoColor=white)](#installation)
+[![Version](https://img.shields.io/badge/version-v1.0.0-4C8BF5?style=for-the-badge)](#)
+[![Android](https://img.shields.io/badge/Android-1.0.5-3DDC84?style=for-the-badge&logo=android&logoColor=white)](#about)
+[![AArch32](https://img.shields.io/badge/AArch32-32--bit-0091BD?style=for-the-badge&logo=arm&logoColor=white)](#building)
+
+</div>
+
+---
+
+## About
+
+`tintin_nx` runs the original 32-bit Android version of **The Adventures of Tintin: The Game HD** on Nintendo Switch, using the open-source [android32](https://github.com/aks796/android32) runtime.
+
+The supported game build is:
+
+```text
+Package:      com.gameloft.android.GAND.GloftTTSS
+Version:      1.0.5
+Version code: 105
+ABI:          armeabi-v7a / AArch32
+```
+
+The original ARM game library runs directly inside a 32-bit Horizon OS process. Players must provide their own APK and game data files (`gameloft/games/GloftTTSS/`); these are not included in the repository or release download.
+
+**No game files are included.** You need your own copy of the game's APK. This project is not affiliated with or endorsed by Gameloft, Ubisoft, Moulinsart, or Nintendo.
 
 > Work in progress.
 
@@ -14,179 +40,123 @@ Moulinsart or Nintendo.
 
 | Feature | State |
 | --- | --- |
-| Boot, loading, 3D gameplay | working |
-| Touchscreen | working |
-| Audio (Vox through AudioTrack on audout) | working |
-| Gamepad: cursor (right stick / D-pad), A, + | working |
-| Gamepad: left stick to the on-screen joystick | working |
+| Boot, loading, 3D gameplay | working ✓ |
+| Touchscreen | working ✓ |
+| Audio (Vox through AudioTrack on audout) | working ✓ |
+| Gamepad: cursor (right stick / D-pad), A, + | working ✓ |
+| Gamepad: left stick to the on-screen joystick | working ✓ |
 | Intro and cutscene videos | skipped (the game is told they finished) |
 | Online features | not implemented |
 
-About
+## Features
 
-tintin_nx runs the original 32-bit Android version of The Adventures of Tintin: The Game HD on Nintendo Switch, using the open-source android32 runtime.
+- Original Android **1.0.5** game running natively in AArch32 on Switch.
+- **1280 × 720** widescreen presentation with touchscreen and gamepad integration.
+- Dynamic cursor navigation for touch-oriented menus (Right Stick / D-Pad + A button).
+- Direct game SD data mounting (`gameloft/games/GloftTTSS/`).
+- Native checkpoint saves and settings persistence.
+- Audio playback via android32 AudioTrack / OpenSL ES driver.
+- 64-bit NRO launcher carrying the 32-bit payload with sphaira HOME-menu forwarder support.
 
-The supported game build is:
+## Installation
 
-Package:      com.gameloft.android.GAND.GloftTTSS
-Version:      1.0.5
-Version code: 105
-ABI:          armeabi-v7a / AArch32
+### Requirements
 
+- A Nintendo Switch running Atmosphère custom firmware.
+- [sphaira](https://github.com/ITotalJustice/sphaira) for installing the HOME-menu forwarder.
+- Your own supported **1.0.5 ARMv7 APK** (`com.gameloft.android.GAND.GloftTTSS`).
+- Extracted Gameloft SD data folder (`GloftTTSS`).
 
-The original ARM game library runs directly inside a 32-bit Horizon OS process. Players must provide their own APK and game data files (gameloft/games/GloftTTSS/); these are not included in the repository or release download.
+Copy the `switch/` folder to the root of your SD card. Ensure the game files are placed according to the layout below:
 
-Status: Boot, 3D gameplay, touchscreen, OpenSL ES / audio out, and gamepad joystick/cursor controls are functional.
-
-Features
-
-Original Android 1.0.5 game running natively in AArch32 on Switch.
-
-1280 × 720 widescreen presentation with touchscreen and gamepad integration.
-
-Dynamic cursor navigation for touch-oriented menus (Right Stick / D-Pad + A button).
-
-Direct game SD data mounting (gameloft/games/GloftTTSS/).
-
-Native checkpoint saves and settings persistence.
-
-Audio playback via android32 AudioTrack / OpenSL ES driver.
-
-64-bit NRO launcher carrying the 32-bit payload with sphaira HOME-menu forwarder support.
-
-Installation
-
-Requirements
-
-A Nintendo Switch running Atmosphère custom firmware.
-
-sphaira for installing the HOME-menu forwarder.
-
-Your own supported 1.0.5 ARMv7 APK (com.gameloft.android.GAND.GloftTTSS).
-
-Extracted Gameloft SD data folder (GloftTTSS).
-
-Copy the switch/ folder to the root of your SD card. Ensure the game files are placed according to the layout below:
-
+```text
 sd:/switch/tintin_nx/
 ├── tintin_nx.nro
 ├── The-Adventures-of-Tintin.apk
-├── gameloft/
-│   └── games/
-│       └── GloftTTSS/
-│           ├── anims/
-│           ├── collisions/
-│           ├── datalibs/
-│           ├── levels/
-│           ├── models/
-│           ├── music/
-│           ├── shaders/
-│           ├── text/
-│           ├── textures/
-│           ├── videos/
-│           ├── oconf.bar
-│           ├── sound.pack
-│           └── states
+└── gameloft/
+    └── games/
+        └── GloftTTSS/
+            ├── anims/
+            ├── collisions/
+            ├── datalibs/
+            ├── levels/
+            ├── models/
+            ├── music/
+            ├── shaders/
+            ├── text/
+            ├── textures/
+            ├── videos/
+            ├── oconf.bar
+            ├── sound.pack
+            └── states
+```
 
+### First launch
 
-First launch
+1. Open **sphaira** and locate **The Adventures of Tintin** in Homebrew.
+2. Select **Install Forwarder**.
+3. Launch the game icon from the Switch **HOME menu**.
+4. On initial launch, the runtime extracts necessary native libraries from the APK and initializes local configurations.
 
-Open sphaira and locate The Adventures of Tintin in Homebrew.
+## Controls
 
-Select Install Forwarder.
+### Gameplay
 
-Launch the game icon from the Switch HOME menu.
+| Nintendo Switch | Input |
+| --- | --- |
+| **Left Stick** | Character movement / On-screen joystick |
+| **Right Stick / D-Pad** | Move virtual cursor |
+| **A** | Tap cursor position / Primary action |
+| **B / X / Y** | Context action buttons |
+| **+** | Pause / Game menu |
+| **Touchscreen** | Native touch controls |
 
-On initial launch, the runtime extracts necessary native libraries from the APK and initializes local configurations.
+### Cursor / Navigation
 
-Controls
+- Move the **Right Stick** or **D-Pad** to reveal the yellow selection cursor.
+- Press **A** to execute a touch tap at the cursor's location.
+- Button positions can be modified by creating `buttons.txt` inside `/switch/tintin_nx/` (refer to `buttons.example.txt`).
 
-Gameplay
+## File Structure & Saves
 
-Nintendo Switch
+The application directory is located under `sd:/switch/tintin_nx/`:
 
-Input
-
-Left Stick
-
-Character movement / On-screen joystick
-
-Right Stick / D-Pad
-
-Move virtual cursor
-
-A
-
-Tap cursor position / Primary action
-
-B / X / Y
-
-Context action buttons
-
-+
-
-Pause / Game menu
-
-Touchscreen
-
-Native touch controls
-
-Cursor / Navigation
-
-Move the Right Stick or D-Pad to reveal the yellow selection cursor.
-
-Press A to execute a touch tap at the cursor's location.
-
-Button positions can be modified by creating buttons.txt inside /switch/tintin_nx/ (refer to buttons.example.txt).
-
-File Structure & Saves
-
-The application directory is located under sd:/switch/tintin_nx/:
-
+```text
 data/              Android internal storage and native saves
 gameloft/          Gameloft shared data (gameloft/games/GloftTTSS/)
 sdcard/            Android external storage root
 buttons.txt        Custom button mapping overrides
 debug.log          Current execution log
 crash.log          Crash diagnostics output
+```
 
+## Building
 
-Building
+### Requirements
 
-Requirements:
+- Docker with Linux container support.
+- [android32](https://github.com/aks796/android32) in `runtime/` (Git submodule).
+- [libnx32](https://github.com/aks796/libnx32) prefix (version 4.12.0 or newer).
+- [mesa32](https://github.com/aks796/mesa32) or `mesa-switch32` in `portlibs32/`.
+- devkitPro `devkita64` for launcher compilation.
 
-Docker with Linux container support.
+### Build steps
 
-android32 in runtime/ (Git submodule).
-
-libnx32 prefix (version 4.12.0 or newer).
-
-mesa32 or mesa-switch32 in portlibs32/.
-
-devkitPro devkita64 for launcher compilation.
-
-Build steps:
-
+```powershell
 git submodule update --init --recursive
 .\build.ps1
 cd launcher; ./build.sh
+```
 
+The compiled binary will be located at `launcher/tintin_nx.nro`.
 
-The compiled binary will be located at launcher/tintin_nx.nro.
+## Credits
 
+- [aks796/android32](https://github.com/aks796/android32) — core AArch32 Android runtime.
+- [libnx32](https://github.com/aks796/libnx32) and Mesa Switch contributors — SDK and graphics stack.
+- [tasm2_nx](https://github.com/Muhilhammau/tasm2-nx) — documentation and structure reference.
+- Gameloft, Ubisoft, and Moulinsart — original game developers and rights holders.
 
+## License
 
-
-Credits
-
-aks796/android32 — core AArch32 Android runtime.
-
-libnx32 and Mesa Switch contributors — SDK and graphics stack.
-
-tasm2_nx — documentation and structure reference.
-
-Gameloft, Ubisoft, and Moulinsart — original game developers and rights holders.
-
-License
-
-The port code is licensed under MIT (see LICENSE). Game assets and binaries remain the property of their respective owners.
+The port code is licensed under MIT (see `LICENSE`). Game assets and binaries remain the property of their respective owners.
