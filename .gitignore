@@ -1,4 +1,4 @@
-# Daftar putih: hanya ini yang masuk repo
+﻿# Daftar putih: hanya ini yang masuk repo
 /*
 !/.gitignore
 !/.gitmodules
@@ -25,10 +25,10 @@
 *.log
 *.dex
 build/
-
 # Hasil dump/disassembly game (berasal dari kode berhak cipta)
 dis_*.txt
-
 # Ikon bisa berasal dari game; isi romfs dibuat ulang saat build
 launcher/icon*.jpg
 launcher/romfs/*
+# the runtime is a git submodule (.gitmodules); libnx32 and portlibs32 are fetched separately
+# disassembly and dumps of the game: derived from copyrighted code
