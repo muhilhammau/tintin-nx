@@ -4,6 +4,24 @@ The Adventures of Tintin: The Game HD on Nintendo Switch
 
 An unofficial Nintendo Switch wrapper/port of Gameloft's Android game.
 
+**No game files are included.** You need your own copy of the game's APK.
+This project is not affiliated with or endorsed by Gameloft, Ubisoft,
+Moulinsart or Nintendo.
+
+> Work in progress.
+
+## Status
+
+| Feature | State |
+| --- | --- |
+| Boot, loading, 3D gameplay | working |
+| Touchscreen | working |
+| Audio (Vox through AudioTrack on audout) | working |
+| Gamepad: cursor (right stick / D-pad), A, + | working |
+| Gamepad: left stick to the on-screen joystick | working |
+| Intro and cutscene videos | skipped (the game is told they finished) |
+| Online features | not implemented |
+
 About
 
 tintin_nx runs the original 32-bit Android version of The Adventures of Tintin: The Game HD on Nintendo Switch, using the open-source android32 runtime.
@@ -155,6 +173,9 @@ cd launcher; ./build.sh
 
 
 The compiled binary will be located at launcher/tintin_nx.nro.
+
+
+
 
 Credits
 
